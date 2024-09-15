@@ -1,0 +1,117 @@
+Full Name: Roaa Hazem Hamoudah
+Registration ID: 1210738
+
+Answer to Q1 (Commands used):
+
+rere-h37@rere-h37-VirtualBox:~$ mkdir 1210738-proj1
+rere-h37@rere-h37-VirtualBox:~$ mkdir 1210738-proj1/AE_plan
+rere-h37@rere-h37-VirtualBox:~$ touch 1210738-proj1/AE_plan/commands.txt
+rere-h37@rere-h37-VirtualBox:~$ mkdir 1210738-proj1/AE_plan/year1 1210738-proj1/AE_plan/year2 1210738-proj1/AE_plan/year3 1210738-proj1/AE_plan/year4
+rere-h37@rere-h37-VirtualBox:~$ mkdir 1210738-proj1/AE_plan/year1/sem1 1210738-proj1/AE_plan/year1/sem2
+rere-h37@rere-h37-VirtualBox:~$ mkdir 1210738-proj1/AE_plan/year2/sem1 1210738-proj1/AE_plan/year2/sem2
+rere-h37@rere-h37-VirtualBox:~$ mkdir 1210738-proj1/AE_plan/year4/sem1 1210738-proj1/AE_plan/year4/sem2
+rere-h37@rere-h37-VirtualBox:~$ mkdir 1210738-proj1/AE_plan/year1/sem1/arab135 1210738-proj1/AE_plan/year1/sem1/enar1111
+rere-h37@rere-h37-VirtualBox:~$ mkdir 1210738-proj1/AE_plan/year1/sem2/arab136 1210738-proj1/AE_plan/year1/sem2/ence323
+rere-h37@rere-h37-VirtualBox:~$ mkdir 1210738-proj1/AE_plan/year2/sem1/arab135 1210738-proj1/AE_plan/year2/sem1/enar2131
+rere-h37@rere-h37-VirtualBox:~$ mkdir 1210738-proj1/AE_plan/year2/sem2/arab136 1210738-proj1/AE_plan/year2/sem2/enar2381
+rere-h37@rere-h37-VirtualBox:~$ mkdir 1210738-proj1/AE_plan/year4/sem1/enar4391
+rere-h37@rere-h37-VirtualBox:~$ touch 1210738-proj1/AE_plan/year2/sem1/enar2131/vi.txt
+rere-h37@rere-h37-VirtualBox:~$ tree 1210738-proj1
+
+Note: the last command is only for displaying the tree.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Answer to Q2:
+
+1) create a link named commands_link.txt .........:-
+Answer:
+
+rere-h37@rere-h37-VirtualBox:~$ ln 1210738-proj1/AE_plan/commands.txt 1210738-proj1/AE_plan/year4/sem1/enar4391/command_link.txt
+
+---------------------
+2) create a link called enar1111_link .........:-
+Answer: 
+
+rere-h37@rere-h37-VirtualBox:~$ ln -s ../../../year1/sem1/enar1111 1210738-proj1/AE_plan/year2/sem1/enar2131/enar1111_link
+
+-------------------
+3) create a link called arab135_link.......:-
+Answer:
+
+rere-h37@rere-h37-VirtualBox:~$ ln -s ../../../year1/sem1/arab135 1210738-proj1/AE_plan/year2/sem2/arab136/arab135_link
+-------------------
+4) explain the difference:
+
+first command: hard link command
+- this command creates a hard link named 'commands_link.txt'
+- hard links are direct pointers to the data of the file, making them identical to the original file. 
+- hard links are not allowed on directories.
+- hard links are not allowed across different devices (file systems).
+- when the original file from which the hard link was created is deleted, the hard link itself is not affected.  
+
+Second and third commands : symbolic link commands
+- the second command creates a symbolic link named 'enar1111_link'
+- the third command creates a symbolic link named 'arab135_link'
+- symbolic links are more like shortcuts or references to the original file or directory, and if the original is deleted, the symbolic link becomes invalid. 
+- symbolic links are allowed for both files and directories. 
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Answer to Q3:
+
+1) open the vi file 'vi 1210738-proj1/AE_plan/year2/sem1/enar2131/vi.txt'
+then in the command mode, type ':set number' and press 'enter'
+
+2) open the vi file 'vi 1210738-proj1/AE_plan/year2/sem1/enar2131/vi.txt'
+then in the command mode, type '/vi'
+, to get the next position type 'n'
+
+3)
+- open the vi file 'vi 1210738-proj1/AE_plan/year2/sem1/enar2131/vi.txt'
+- then in the command mode, type /" and press 'enter' to search for double quotation marks.
+- then use the 'r' command followed by the single quote (') to replace each double quotation mark (Notice that the letter 'r' and the single quote do not appear on the terminal,
+ but the replacement takes place directly). 
+
+4)
+- open the vi file 'vi 1210738-proj1/AE_plan/year2/sem1/enar2131/vi.txt'
+- then in the command mode, place the cursor on the letter 'B' of the word BSD
+- press 'dw' to delete the word BSD
+- then on the other BSD words, do the same thing.  
+
+5) :map! L 4G3yyGp
+
+6) open the vi , place the cursor at the beginning of the word 'The' , and then we do'yw' then dw (to delete 'The') then w to move to the first word after 'name' then we press P. 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Answer to Q5: 
+by using relative method:
+ls -l 1210738-proj1/AE_plan
+chmod u=rw,g-rwx,o=r 1210738-proj1/AE_plan/year3
+ls -l 1210738-proj1/AE_plan
+
+
+using absolute method:
+rw----r--
+rw-=6 ---=0 r--=4
+chmod 604 1210738-proj1/AE_plan/year3
+
+------------------------------------------------------------------------------------------------------------------------------------------------------ 
+
+Answer to Q6:
+
+rw-r--r-x
+rw-=6 r--=4 r-x=5
+777-645=132 the umask= 132
+rwxr-xr--
+rwx=7 r-x=5 r--=4
+777-754=023 the umask=023
+rw-r-xr-x
+rw-=6 r-x=5 r-x=5 
+777-655=122 the umask=122
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Answer to Q7:
+stat 1210738-proj1/AE_plan/commands.txt
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
